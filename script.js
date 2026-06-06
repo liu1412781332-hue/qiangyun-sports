@@ -16,6 +16,11 @@ const modalStatus = document.querySelector(".modal-status");
 const openSignupButtons = document.querySelectorAll(".open-signup");
 const closeModalButtons = document.querySelectorAll("[data-close-modal]");
 const apiBaseUrl = window.location.hostname.endsWith("github.io") ? "https://qiangyun-sports.onrender.com" : "";
+const carouselSlides = document.querySelectorAll(".carousel-slide");
+const carouselDots = document.querySelectorAll(".carousel-dot");
+const carouselButtons = document.querySelectorAll("[data-carousel]");
+let carouselIndex = 0;
+let carouselTimer;
 
 const submitInquiry = async (payload) => {
   const response = await fetch(`${apiBaseUrl}/api/inquiries`, {
@@ -99,6 +104,43 @@ const counterObserver = new IntersectionObserver(
 );
 
 counters.forEach((counter) => counterObserver.observe(counter));
+
+const showSlide = (index) => {
+  if (!carouselSlides.length) {
+    return;
+  }
+
+  carouselIndex = (index + carouselSlides.length) % carouselSlides.length;
+  carouselSlides.forEach((slide, slideIndex) => {
+    slide.classList.toggle("is-active", slideIndex === carouselIndex);
+  });
+  carouselDots.forEach((dot, dotIndex) => {
+    dot.classList.toggle("is-active", dotIndex === carouselIndex);
+  });
+};
+
+const restartCarousel = () => {
+  window.clearInterval(carouselTimer);
+  carouselTimer = window.setInterval(() => showSlide(carouselIndex + 1), 5200);
+};
+
+carouselButtons.forEach((button) => {
+  button.addEventListener("click", () => {
+    showSlide(carouselIndex + (button.dataset.carousel === "next" ? 1 : -1));
+    restartCarousel();
+  });
+});
+
+carouselDots.forEach((dot) => {
+  dot.addEventListener("click", () => {
+    showSlide(Number(dot.dataset.slide || 0));
+    restartCarousel();
+  });
+});
+
+if (carouselSlides.length) {
+  restartCarousel();
+}
 
 filterButtons.forEach((button) => {
   button.addEventListener("click", () => {

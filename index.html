@@ -30,8 +30,21 @@
 
     <main>
       <section class="hero" aria-labelledby="hero-title">
-        <img class="hero-image" src="assets/qiangyun-hero.png" alt="年轻人在城市运动场参与篮球、足球、跑步、拳击和羽毛球活动" />
+        <div class="hero-carousel" aria-label="强运活动轮播图">
+          <div class="hero-image carousel-slide sport-banner slide-running is-active" role="img" aria-label="城市跑步和体能训练活动视觉"><span>RUN</span></div>
+          <div class="hero-image carousel-slide sport-banner slide-basketball" role="img" aria-label="篮球活动视觉"><span>BASKETBALL</span></div>
+          <div class="hero-image carousel-slide sport-banner slide-boxing" role="img" aria-label="拳击和健身活动视觉"><span>BOXING</span></div>
+        </div>
         <div class="hero-shade"></div>
+        <div class="carousel-controls" aria-label="轮播控制">
+          <button class="carousel-button" type="button" data-carousel="prev" aria-label="上一张">‹</button>
+          <div class="carousel-dots" aria-label="轮播分页">
+            <button class="carousel-dot is-active" type="button" data-slide="0" aria-label="第 1 张"></button>
+            <button class="carousel-dot" type="button" data-slide="1" aria-label="第 2 张"></button>
+            <button class="carousel-dot" type="button" data-slide="2" aria-label="第 3 张"></button>
+          </div>
+          <button class="carousel-button" type="button" data-carousel="next" aria-label="下一张">›</button>
+        </div>
         <div class="hero-content">
           <p class="eyebrow">强运青年运动活动</p>
           <h1 id="hero-title">运动起来，状态就会回来</h1>

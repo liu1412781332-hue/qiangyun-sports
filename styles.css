@@ -138,6 +138,121 @@ img {
   object-fit: cover;
 }
 
+.hero-carousel {
+  position: absolute;
+  inset: 0;
+}
+
+.carousel-slide {
+  opacity: 0;
+  transform: scale(1.02);
+  transition: opacity 0.65s ease, transform 1.2s ease;
+}
+
+.carousel-slide.is-active {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.sport-banner {
+  display: grid;
+  place-items: center;
+  overflow: hidden;
+}
+
+.sport-banner::before,
+.sport-banner::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+}
+
+.sport-banner::before {
+  opacity: 0.95;
+}
+
+.sport-banner::after {
+  background:
+    repeating-linear-gradient(100deg, rgba(255, 255, 255, 0.12) 0 2px, transparent 2px 54px),
+    radial-gradient(circle at 72% 35%, rgba(52, 245, 198, 0.28), transparent 28%),
+    radial-gradient(circle at 18% 68%, rgba(255, 221, 87, 0.2), transparent 24%);
+}
+
+.sport-banner span {
+  position: relative;
+  z-index: 1;
+  color: rgba(255, 255, 255, 0.18);
+  font-size: clamp(68px, 14vw, 190px);
+  font-weight: 900;
+  line-height: 1;
+}
+
+.slide-running::before {
+  background:
+    linear-gradient(0deg, transparent 58%, rgba(255, 255, 255, 0.22) 58% 60%, transparent 60%),
+    repeating-linear-gradient(90deg, transparent 0 120px, rgba(255, 255, 255, 0.2) 120px 124px),
+    linear-gradient(135deg, #07172f 0%, #0759ff 52%, #34f5c6 100%);
+}
+
+.slide-basketball::before {
+  background:
+    radial-gradient(circle at 78% 45%, transparent 0 82px, rgba(255, 221, 87, 0.8) 83px 88px, transparent 89px),
+    radial-gradient(circle at 78% 45%, rgba(255, 221, 87, 0.5) 0 84px, transparent 85px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.24) 48%, transparent 48%),
+    linear-gradient(145deg, #07172f, #0759ff 62%, #ff6b5f);
+}
+
+.slide-boxing::before {
+  background:
+    repeating-linear-gradient(-35deg, rgba(255, 255, 255, 0.18) 0 18px, transparent 18px 42px),
+    radial-gradient(circle at 72% 48%, rgba(255, 107, 95, 0.52), transparent 26%),
+    linear-gradient(135deg, #07172f 0%, #102a56 50%, #0759ff 100%);
+}
+
+.carousel-controls {
+  position: absolute;
+  right: clamp(18px, 5vw, 64px);
+  bottom: 42px;
+  z-index: 4;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.carousel-button,
+.carousel-dot {
+  border: 1px solid rgba(255, 255, 255, 0.32);
+  cursor: pointer;
+  color: #fff;
+  background: rgba(255, 255, 255, 0.12);
+  backdrop-filter: blur(12px);
+}
+
+.carousel-button {
+  width: 42px;
+  height: 42px;
+  border-radius: 8px;
+  font-size: 30px;
+  line-height: 1;
+}
+
+.carousel-dots {
+  display: flex;
+  gap: 8px;
+}
+
+.carousel-dot {
+  width: 10px;
+  height: 10px;
+  padding: 0;
+  border-radius: 999px;
+}
+
+.carousel-dot.is-active {
+  width: 28px;
+  background: var(--cyan);
+}
+
 .hero-shade {
   background:
     repeating-linear-gradient(105deg, rgba(255, 255, 255, 0.08) 0 1px, transparent 1px 46px),

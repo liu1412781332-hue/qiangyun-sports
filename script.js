@@ -15,9 +15,10 @@ const quickForm = document.querySelector("#quickForm");
 const modalStatus = document.querySelector(".modal-status");
 const openSignupButtons = document.querySelectorAll(".open-signup");
 const closeModalButtons = document.querySelectorAll("[data-close-modal]");
+const apiBaseUrl = window.location.hostname.endsWith("github.io") ? "https://qiangyun-sports.onrender.com" : "";
 
 const submitInquiry = async (payload) => {
-  const response = await fetch("/api/inquiries", {
+  const response = await fetch(`${apiBaseUrl}/api/inquiries`, {
     method: "POST",
     headers: {
       "Content-Type": "application/json",

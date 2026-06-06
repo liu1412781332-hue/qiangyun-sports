@@ -24,6 +24,8 @@ npm start
 
 咨询记录会保存到 `data/inquiries.jsonl`。这是轻量文件存储，适合前期试运行；正式长期运营建议以后换成数据库。
 
+线上后端地址：`https://qiangyun-sports.onrender.com`
+
 ## 部署方式
 
 静态展示可以部署到 GitHub Pages：

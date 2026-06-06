@@ -8,6 +8,10 @@ const dataDir = path.join(rootDir, "data");
 const inquiriesFile = path.join(dataDir, "inquiries.jsonl");
 const port = Number(process.env.PORT || 3000);
 const adminToken = process.env.ADMIN_TOKEN || "qiangyun-admin";
+const allowedOrigins = new Set([
+  "https://liu1412781332-hue.github.io",
+  "https://qiangyun-sports.onrender.com",
+]);
 
 const mimeTypes = {
   ".html": "text/html; charset=utf-8",
@@ -25,6 +29,16 @@ const sendJson = (response, statusCode, payload) => {
     "Cache-Control": "no-store",
   });
   response.end(JSON.stringify(payload));
+};
+
+const applyCors = (request, response) => {
+  const origin = request.headers.origin;
+  if (allowedOrigins.has(origin)) {
+    response.setHeader("Access-Control-Allow-Origin", origin);
+    response.setHeader("Vary", "Origin");
+  }
+  response.setHeader("Access-Control-Allow-Methods", "GET, POST, OPTIONS");
+  response.setHeader("Access-Control-Allow-Headers", "Content-Type, X-Admin-Token");
 };
 
 const readBody = (request) =>
@@ -151,6 +165,13 @@ const serveStatic = async (request, response, url) => {
 
 const server = http.createServer(async (request, response) => {
   try {
+    applyCors(request, response);
+    if (request.method === "OPTIONS") {
+      response.writeHead(204);
+      response.end();
+      return;
+    }
+
     const url = new URL(request.url, `http://${request.headers.host}`);
     const handled = await handleApi(request, response, url);
     if (!handled) {

@@ -26,6 +26,17 @@ npm start
 
 线上后端地址：`https://qiangyun-sports.onrender.com`
 
+## 页面结构
+
+- `index.html`：首页
+- `sports.html`：运动项目
+- `coaches.html`：教练团队
+- `events.html`：活动赛事
+- `gallery.html`：照片墙
+- `pricing.html`：活动套餐
+- `contact.html`：联系我们和咨询表
+- `admin.html`：咨询记录后台
+
 ## 部署方式
 
 静态展示可以部署到 GitHub Pages：

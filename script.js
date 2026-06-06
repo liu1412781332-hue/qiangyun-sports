@@ -130,13 +130,22 @@ const openModal = (eventName) => {
 };
 
 const closeModal = () => {
+  if (!modal) {
+    return;
+  }
   modal.classList.remove("is-open");
   modal.setAttribute("aria-hidden", "true");
   document.body.classList.remove("modal-open");
 };
 
 openSignupButtons.forEach((button) => {
-  button.addEventListener("click", () => openModal(button.dataset.event));
+  button.addEventListener("click", () => {
+    if (modal) {
+      openModal(button.dataset.event);
+    } else {
+      window.location.href = "contact.html";
+    }
+  });
 });
 
 closeModalButtons.forEach((button) => {
@@ -144,7 +153,7 @@ closeModalButtons.forEach((button) => {
 });
 
 document.addEventListener("keydown", (event) => {
-  if (event.key === "Escape" && modal.classList.contains("is-open")) {
+  if (event.key === "Escape" && modal?.classList.contains("is-open")) {
     closeModal();
   }
 });

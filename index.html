@@ -4,25 +4,24 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>强运 | 年轻人的运动召集站</title>
-    <meta
-      name="description"
-      content="强运面向青少年和上班族发起健身、篮球、足球、跑步、拳击、羽毛球活动，号召大家一起运动起来。"
-    />
+    <meta name="description" content="强运面向青少年和上班族发起健身、篮球、足球、跑步、拳击、羽毛球活动，号召大家一起运动起来。" />
     <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
     <header class="site-header" id="top">
-      <a class="brand" href="#top" aria-label="强运首页">
+      <a class="brand" href="index.html" aria-label="强运首页">
         <img src="assets/qiangyun-logo.svg" alt="强运" />
       </a>
       <nav class="nav" aria-label="主导航">
-        <a href="#sports">运动项目</a>
-        <a href="#coaches">教练团队</a>
-        <a href="#events">活动赛事</a>
-        <a href="#gallery">照片墙</a>
-        <a href="#contact">联系我们</a>
+        <a class="is-active" href="index.html">首页</a>
+        <a href="sports.html">运动项目</a>
+        <a href="coaches.html">教练团队</a>
+        <a href="events.html">活动赛事</a>
+        <a href="gallery.html">照片墙</a>
+        <a href="pricing.html">活动套餐</a>
+        <a href="contact.html">联系我们</a>
       </nav>
-      <a class="nav-cta" href="#contact">加入活动</a>
+      <a class="nav-cta" href="contact.html">加入活动</a>
       <button class="menu-button" type="button" aria-label="打开导航" aria-expanded="false">
         <span></span>
         <span></span>
@@ -40,249 +39,60 @@
             面向青少年和上班族的城市运动召集计划。健身、篮球、足球、跑步、拳击、羽毛球，一起把下班后和周末变得更有劲。
           </p>
           <div class="hero-actions">
-            <button class="button primary open-signup" type="button" data-event="强运城市运动日">报名咨询</button>
-            <a class="button ghost" href="#events">查看活动</a>
+            <a class="button primary" href="contact.html">报名咨询</a>
+            <a class="button ghost" href="events.html">查看活动</a>
           </div>
           <div class="hero-stats" aria-label="强运活动亮点">
-            <div>
-              <strong data-count="6">0</strong>
-              <span>热门项目</span>
-            </div>
-            <div>
-              <strong data-count="2">0</strong>
-              <span>核心人群</span>
-            </div>
-            <div>
-              <strong>∞</strong>
-              <span>持续召集</span>
-            </div>
+            <div><strong data-count="6">0</strong><span>热门项目</span></div>
+            <div><strong data-count="2">0</strong><span>核心人群</span></div>
+            <div><strong>∞</strong><span>持续召集</span></div>
           </div>
-          <a class="scroll-cue" href="#sports" aria-label="查看运动项目">
-            <span></span>
-          </a>
+          <a class="scroll-cue" href="#overview" aria-label="查看网站概览"><span></span></a>
         </div>
       </section>
 
-      <section class="section intro reveal" aria-labelledby="intro-title">
+      <section class="section intro reveal" id="overview" aria-labelledby="intro-title">
         <div class="section-heading">
-          <p class="eyebrow">For Everyone</p>
-          <h2 id="intro-title">不只健身，是把人重新叫到球场、跑道和训练馆</h2>
+          <p class="eyebrow">Website</p>
+          <h2 id="intro-title">强运现在是一个完整多页面运动网站</h2>
         </div>
         <p>
-          强运把不同运动做成轻量、好加入、有节奏的活动。你可以一个人来，也可以带同学、同事一起来。目标很简单：少坐一点，多动一点，把热情找回来。
+          顶部导航会进入独立页面，底部也提供完整导航。用户可以分别查看项目、教练、活动、照片、套餐，也可以进入联系我们页面提交咨询。
         </p>
       </section>
 
-      <section class="section sports-section reveal" id="sports" aria-labelledby="sports-title">
+      <section class="section sports-section reveal" aria-labelledby="quick-title">
         <div class="section-heading">
-          <p class="eyebrow">Sports</p>
-          <h2 id="sports-title">六大运动项目</h2>
+          <p class="eyebrow">Quick Entry</p>
+          <h2 id="quick-title">快速进入</h2>
         </div>
-        <div class="sport-filters" aria-label="运动项目筛选">
-          <button class="filter-chip is-active" type="button" data-filter="all">全部</button>
-          <button class="filter-chip" type="button" data-filter="team">团队竞技</button>
-          <button class="filter-chip" type="button" data-filter="solo">个人提升</button>
-          <button class="filter-chip" type="button" data-filter="afterwork">下班友好</button>
+        <div class="link-grid">
+          <a class="link-card" href="sports.html"><span>01</span><strong>运动项目</strong><p>健身、篮球、足球、跑步、拳击、羽毛球。</p></a>
+          <a class="link-card" href="events.html"><span>02</span><strong>活动赛事</strong><p>查看周末主推、工作日夜场、青少年专场。</p></a>
+          <a class="link-card" href="contact.html"><span>03</span><strong>报名咨询</strong><p>提交咨询表，记录会保存到后台。</p></a>
         </div>
-        <div class="sports-grid">
-          <article class="sport-card" data-tags="solo afterwork" data-detail="推荐玩法：45 分钟力量循环 + 15 分钟拉伸恢复，适合想先建立运动习惯的人。">
-            <span>FIT</span>
-            <h3>健身</h3>
-            <p>体能唤醒、力量循环、燃脂训练，适合从零开始建立运动习惯。</p>
-            <button class="mini-action" type="button">查看玩法</button>
-          </article>
-          <article class="sport-card" data-tags="team afterwork" data-detail="推荐玩法：投篮热身、三人组队、半场对抗，适合朋友和同事组局。">
-            <span>BASK</span>
-            <h3>篮球</h3>
-            <p>半场对抗、投篮挑战、团队赛，让球场重新热起来。</p>
-            <button class="mini-action" type="button">查看玩法</button>
-          </article>
-          <article class="sport-card" data-tags="team" data-detail="推荐玩法：小场传控、趣味射门、周末友谊赛，新人也能快速融入。">
-            <span>FOOT</span>
-            <h3>足球</h3>
-            <p>趣味小场、传控训练、周末友谊赛，轻松加入不冷场。</p>
-            <button class="mini-action" type="button">查看玩法</button>
-          </article>
-          <article class="sport-card" data-tags="solo afterwork" data-detail="推荐玩法：配速分组、夜跑打卡、路线挑战，把坚持变成可见的成长。">
-            <span>RUN</span>
-            <h3>跑步</h3>
-            <p>夜跑打卡、配速分组、城市路线，把坚持变成社交。</p>
-            <button class="mini-action" type="button">查看玩法</button>
-          </article>
-          <article class="sport-card" data-tags="solo afterwork" data-detail="推荐玩法：节奏拳、沙袋组合、核心训练，适合释放压力和提升爆发力。">
-            <span>BOX</span>
-            <h3>拳击</h3>
-            <p>节奏拳、沙袋训练、防守步伐，释放压力也提升爆发力。</p>
-            <button class="mini-action" type="button">查看玩法</button>
-          </article>
-          <article class="sport-card" data-tags="team afterwork" data-detail="推荐玩法：双打轮换、技巧练习、轻竞技排位，运动量足但门槛不高。">
-            <span>BADM</span>
-            <h3>羽毛球</h3>
-            <p>双打组队、技巧练习、轻竞技排位，适合下班后快速开打。</p>
-            <button class="mini-action" type="button">查看玩法</button>
-          </article>
-        </div>
-        <div class="sport-detail" aria-live="polite">
-          <strong>点一个项目</strong>
-          <span>查看推荐活动玩法和适合人群。</span>
-        </div>
-      </section>
-
-      <section class="section split reveal" id="coaches" aria-labelledby="coaches-title">
-        <div class="section-heading">
-          <p class="eyebrow">Team</p>
-          <h2 id="coaches-title">教练与领队</h2>
-        </div>
-        <div class="coach-layout">
-          <div class="coach-copy">
-            <h3>懂训练，也懂普通人的节奏</h3>
-            <p>
-              活动由项目教练和运动领队共同组织。强度会按新人、进阶、挑战组分层，让青少年有成长感，让上班族不被高门槛劝退。
-            </p>
-          </div>
-          <div class="coach-list" aria-label="教练特点">
-            <div><strong>基础指导</strong><span>动作热身、技术纠正、拉伸恢复</span></div>
-            <div><strong>分组组织</strong><span>按年龄、体能和经验安排队伍</span></div>
-            <div><strong>活动氛围</strong><span>轻竞技、可社交、有目标感</span></div>
-          </div>
-        </div>
-      </section>
-
-      <section class="section events reveal" id="events" aria-labelledby="events-title">
-        <div class="section-heading">
-          <p class="eyebrow">Events</p>
-          <h2 id="events-title">近期活动方向</h2>
-        </div>
-        <div class="event-row">
-          <article class="event-card highlight">
-            <p>周末主推</p>
-            <h3>强运城市运动日</h3>
-            <span>篮球  足球  跑步  羽毛球</span>
-            <button class="event-link open-signup" type="button" data-event="强运城市运动日">预约名额</button>
-          </article>
-          <article class="event-card">
-            <p>工作日夜场</p>
-            <h3>下班后燃动局</h3>
-            <span>健身  拳击  夜跑</span>
-            <button class="event-link open-signup" type="button" data-event="下班后燃动局">咨询安排</button>
-          </article>
-          <article class="event-card">
-            <p>青少年专场</p>
-            <h3>少年运动成长营</h3>
-            <span>体能  球类  协作挑战</span>
-            <button class="event-link open-signup" type="button" data-event="少年运动成长营">加入名单</button>
-          </article>
-        </div>
-      </section>
-
-      <section class="section gallery reveal" id="gallery" aria-labelledby="gallery-title">
-        <div class="section-heading">
-          <p class="eyebrow">Moments</p>
-          <h2 id="gallery-title">照片墙</h2>
-        </div>
-        <div class="photo-wall" aria-label="运动活动氛围">
-          <div class="photo-tile tile-run"><span>RUN</span></div>
-          <div class="photo-tile tile-ball"><span>BALL</span></div>
-          <div class="photo-tile tile-box"><span>BOX</span></div>
-          <div class="photo-tile tile-fit"><span>FIT</span></div>
-        </div>
-      </section>
-
-      <section class="section pricing reveal" aria-labelledby="pricing-title">
-        <div class="section-heading">
-          <p class="eyebrow">Plan</p>
-          <h2 id="pricing-title">活动套餐</h2>
-        </div>
-        <div class="pricing-grid">
-          <article class="price-card">
-            <h3>体验活动</h3>
-            <p>适合第一次加入</p>
-            <strong>咨询后安排</strong>
-          </article>
-          <article class="price-card featured">
-            <h3>月度运动队</h3>
-            <p>适合持续打卡</p>
-            <strong>按项目排期</strong>
-          </article>
-          <article class="price-card">
-            <h3>团体活动</h3>
-            <p>适合同学和公司</p>
-            <strong>支持定制</strong>
-          </article>
-        </div>
-      </section>
-
-      <section class="contact-section reveal" id="contact" aria-labelledby="contact-title">
-        <div class="contact-copy">
-          <p class="eyebrow">Contact</p>
-          <h2 id="contact-title">想动起来，就从一次咨询开始</h2>
-          <p>留下你的信息，我们会按年龄、时间和想参加的项目帮你匹配活动。也可以直接添加微信：18902543881。</p>
-          <button class="wechat-copy" type="button" data-copy="18902543881">复制微信号</button>
-        </div>
-        <form class="contact-form" id="consultForm">
-          <label>
-            姓名
-            <input name="name" type="text" placeholder="请输入姓名" required />
-          </label>
-          <label>
-            联系方式
-            <input name="phone" type="tel" placeholder="手机号或微信号" required />
-          </label>
-          <label>
-            想参加的项目
-            <select name="sport" required>
-              <option value="">请选择</option>
-              <option>健身</option>
-              <option>篮球</option>
-              <option>足球</option>
-              <option>跑步</option>
-              <option>拳击</option>
-              <option>羽毛球</option>
-              <option>团体活动</option>
-            </select>
-          </label>
-          <label>
-            你的时间
-            <textarea name="message" rows="4" placeholder="例如：工作日晚上、周末下午、青少年周末班"></textarea>
-          </label>
-          <button class="button primary full" type="submit">提交咨询</button>
-          <p class="form-status" role="status" aria-live="polite"></p>
-        </form>
       </section>
     </main>
 
-    <div class="signup-modal" id="signupModal" aria-hidden="true">
-      <div class="modal-backdrop" data-close-modal></div>
-      <section class="modal-panel" role="dialog" aria-modal="true" aria-labelledby="modal-title">
-        <button class="modal-close" type="button" aria-label="关闭弹窗" data-close-modal>×</button>
-        <p class="eyebrow">Quick Join</p>
-        <h2 id="modal-title">加入强运活动</h2>
-        <p class="modal-event">正在咨询：<strong>强运城市运动日</strong></p>
-        <form class="quick-form" id="quickForm">
-          <label>
-            昵称
-            <input name="nickname" type="text" placeholder="怎么称呼你" required />
-          </label>
-          <label>
-            微信或手机号
-            <input name="contact" type="text" placeholder="方便我们联系你" required />
-          </label>
-          <button class="button primary full" type="submit">提交报名意向</button>
-          <p class="modal-status" role="status" aria-live="polite"></p>
-        </form>
-      </section>
-    </div>
-
-    <a class="floating-join" href="#contact" aria-label="快速咨询">
-      <span>JOIN</span>
-    </a>
+    <a class="floating-join" href="contact.html" aria-label="快速咨询"><span>JOIN</span></a>
 
     <footer class="footer">
-      <img src="assets/qiangyun-logo.svg" alt="强运" />
-      <p>强运 · 号召大家运动起来</p>
+      <div class="footer-brand">
+        <img src="assets/qiangyun-logo.svg" alt="强运" />
+        <p>强运 · 号召大家运动起来</p>
+      </div>
+      <nav class="footer-nav" aria-label="底部导航">
+        <a href="index.html">首页</a>
+        <a href="sports.html">运动项目</a>
+        <a href="coaches.html">教练团队</a>
+        <a href="events.html">活动赛事</a>
+        <a href="gallery.html">照片墙</a>
+        <a href="pricing.html">活动套餐</a>
+        <a href="contact.html">联系我们</a>
+      </nav>
       <a href="#top">回到顶部</a>
     </footer>
 
-    <script src="script.js?v=20260606-render-backend"></script>
+    <script src="script.js?v=20260606-pages"></script>
   </body>
 </html>

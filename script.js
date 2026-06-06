@@ -34,7 +34,7 @@ const submitInquiry = async (payload) => {
 };
 
 const showFallbackMessage = (target, name, sport) => {
-  target.textContent = `${name}，你的${sport}咨询已收到。当前页面如果部署在 GitHub Pages，需要把后端单独上线；也可以先添加微信 18902543881 确认活动。`;
+  target.textContent = `${name}，你的${sport}咨询没有保存到后台。请刷新页面后再试，或先添加微信 18902543881。`;
 };
 
 menuButton?.addEventListener("click", () => {
@@ -158,14 +158,14 @@ form?.addEventListener("submit", async (event) => {
   statusText.textContent = "正在提交...";
 
   try {
-    await submitInquiry({
+    const result = await submitInquiry({
       name,
       contact: String(data.get("phone") || "").trim(),
       sport,
       message: String(data.get("message") || "").trim(),
       source: "contact_form",
     });
-    statusText.textContent = `${name}，你的${sport}咨询已提交。我们会通过你留下的联系方式联系你，也可以先添加微信 18902543881。`;
+    statusText.textContent = `${name}，你的${sport}咨询已保存到后台。记录编号：${result.id}`;
     form.reset();
   } catch {
     showFallbackMessage(statusText, name, sport || "运动活动");
@@ -181,16 +181,16 @@ quickForm?.addEventListener("submit", async (event) => {
   modalStatus.textContent = "正在提交...";
 
   try {
-    await submitInquiry({
+    const result = await submitInquiry({
       name: nickname,
       contact: String(data.get("contact") || "").trim(),
       sport: "活动报名",
       event: eventName,
       source: "quick_modal",
     });
-    modalStatus.textContent = `${nickname}，${eventName}报名意向已提交。`;
+    modalStatus.textContent = `${nickname}，${eventName}报名意向已保存到后台。记录编号：${result.id}`;
     quickForm.reset();
   } catch {
-    modalStatus.textContent = `${nickname}，当前静态页面还没连接线上后端，请先添加微信 18902543881。`;
+    modalStatus.textContent = `${nickname}，报名意向没有保存到后台。请刷新页面后再试，或先添加微信 18902543881。`;
   }
 });

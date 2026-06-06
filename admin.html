@@ -1,0 +1,97 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>强运咨询后台</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body class="admin-page">
+    <main class="admin-shell">
+      <section class="admin-header">
+        <img src="assets/qiangyun-logo.svg" alt="强运" />
+        <div>
+          <p class="eyebrow">Admin</p>
+          <h1>咨询记录后台</h1>
+        </div>
+      </section>
+
+      <section class="admin-controls">
+        <label>
+          管理密码
+          <input id="adminToken" type="password" placeholder="默认：qiangyun-admin" />
+        </label>
+        <button class="button primary" id="loadInquiries" type="button">读取记录</button>
+      </section>
+
+      <section class="admin-table-wrap">
+        <table class="admin-table">
+          <thead>
+            <tr>
+              <th>时间</th>
+              <th>姓名</th>
+              <th>联系方式</th>
+              <th>项目</th>
+              <th>活动</th>
+              <th>留言</th>
+            </tr>
+          </thead>
+          <tbody id="inquiryRows">
+            <tr>
+              <td colspan="6">输入管理密码后读取记录。</td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
+    </main>
+
+    <script>
+      const tokenInput = document.querySelector("#adminToken");
+      const loadButton = document.querySelector("#loadInquiries");
+      const rows = document.querySelector("#inquiryRows");
+
+      const escapeHtml = (value) =>
+        String(value || "")
+          .replaceAll("&", "&amp;")
+          .replaceAll("<", "&lt;")
+          .replaceAll(">", "&gt;")
+          .replaceAll('"', "&quot;")
+          .replaceAll("'", "&#039;");
+
+      loadButton.addEventListener("click", async () => {
+        rows.innerHTML = '<tr><td colspan="6">正在读取...</td></tr>';
+        try {
+          const response = await fetch("/api/inquiries", {
+            headers: {
+              "X-Admin-Token": tokenInput.value || "qiangyun-admin",
+            },
+          });
+          const data = await response.json();
+          if (!response.ok) {
+            throw new Error(data.error || "load_failed");
+          }
+
+          if (!data.inquiries.length) {
+            rows.innerHTML = '<tr><td colspan="6">暂时还没有咨询记录。</td></tr>';
+            return;
+          }
+
+          rows.innerHTML = data.inquiries
+            .map(
+              (item) => `<tr>
+                <td>${escapeHtml(new Date(item.createdAt).toLocaleString())}</td>
+                <td>${escapeHtml(item.name)}</td>
+                <td>${escapeHtml(item.contact)}</td>
+                <td>${escapeHtml(item.sport)}</td>
+                <td>${escapeHtml(item.event)}</td>
+                <td>${escapeHtml(item.message)}</td>
+              </tr>`,
+            )
+            .join("");
+        } catch {
+          rows.innerHTML = '<tr><td colspan="6">读取失败，请确认后端已启动，管理密码正确。</td></tr>';
+        }
+      });
+    </script>
+  </body>
+</html>

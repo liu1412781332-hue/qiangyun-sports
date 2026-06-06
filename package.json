@@ -1,0 +1,12 @@
+{
+  "name": "qiangyun-sports",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Qiangyun sports promotion website with a small built-in inquiry backend.",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}
